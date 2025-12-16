@@ -9,4 +9,569 @@
   <p>Deploy funcionando corretamente.</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mello Estética | Centro de Saúde e Beleza Premium</title>
+    <meta name="description" content="Mello Estética em Goiânia. Especialistas em Botox, Criolipólise, Depilação a Laser e Harmonização. Agende sua avaliação.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#FDFBF7', /* Off-white mais quente */
+                            gold: '#C5A059',   /* Dourado mais sóbrio e elegante */
+                            goldDark: '#9A7B3A',
+                            dark: '#1A1A1A',   /* Preto suave */
+                            gray: '#4A4A4A',
+                            accent: '#F2EBE5'  /* Bege Nude */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'], /* Fonte mais luxuosa */
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'gold': '0 4px 20px -5px rgba(197, 160, 89, 0.3)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Classes utilitárias para animação de scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradiente Dourado no Texto */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #C5A059, #9A7B3A, #C5A059);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Botão Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .whatsapp-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #25D366;
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.7;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        
+        /* Ajuste fino para imagens */
+        .image-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-brand-dark bg-brand-light antialiased overflow-x-hidden">
+
+    <!-- Top Bar -->
+    <div class="bg-brand-dark text-white text-[11px] uppercase tracking-widest py-3 text-center border-b border-white/10">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <span class="hidden md:inline"><i class="fas fa-map-marker-alt mr-2 text-brand-gold"></i> St. Morada do Sol, Goiânia</span>
+            <span class="mx-auto md:mx-0"><i class="fas fa-clock mr-2 text-brand-gold"></i> Aberto hoje até às 18:00</span>
+            <span class="hidden md:inline"><i class="fas fa-phone mr-2 text-brand-gold"></i> (62) 99249-2118</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header" class="sticky top-0 bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipOY--nwhf9iko2q83Ygz0YFggh1Y6Uf39KvnRU=s1360-w1360-h1020-rw" 
+                         alt="Logo Mello Estética" 
+                         class="h-12 w-12 rounded-full object-cover border border-brand-gold shadow-md group-hover:scale-105 transition duration-300">
+                </div>
+                <div>
+                    <h1 class="font-serif text-2xl font-bold tracking-widest text-brand-dark leading-none">MELLO</h1>
+                    <span class="text-[10px] uppercase tracking-[0.4em] text-brand-gold block mt-1">Estética Avançada</span>
+                </div>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-brand-gray">
+                <a href="#inicio" class="hover:text-brand-gold transition border-b-2 border-transparent hover:border-brand-gold py-1">Início</a>
+                <a href="#procedimentos" class="hover:text-brand-gold transition border-b-2 border-transparent hover:border-brand-gold py-1">Procedimentos</a>
+                <a href="#resultados" class="hover:text-brand-gold transition border-b-2 border-transparent hover:border-brand-gold py-1">Antes e Depois</a>
+                <a href="#sobre" class="hover:text-brand-gold transition border-b-2 border-transparent hover:border-brand-gold py-1">O Espaço</a>
+                <a href="#depoimentos" class="hover:text-brand-gold transition border-b-2 border-transparent hover:border-brand-gold py-1">Depoimentos</a>
+                
+                <a href="https://wa.me/5562992492118?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação." 
+                   target="_blank"
+                   class="bg-brand-dark text-white px-6 py-3 rounded-none hover:bg-brand-gold transition duration-300 transform hover:-translate-y-0.5 shadow-lg">
+                   Agendar Visita
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-brand-dark focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 lg:hidden flex-col">
+            <a href="#inicio" class="block px-6 py-4 text-sm font-medium hover:bg-brand-accent hover:text-brand-gold border-b border-gray-50 transition">Início</a>
+            <a href="#procedimentos" class="block px-6 py-4 text-sm font-medium hover:bg-brand-accent hover:text-brand-gold border-b border-gray-50 transition">Procedimentos</a>
+            <a href="#resultados" class="block px-6 py-4 text-sm font-medium hover:bg-brand-accent hover:text-brand-gold border-b border-gray-50 transition">Antes e Depois</a>
+            <a href="#sobre" class="block px-6 py-4 text-sm font-medium hover:bg-brand-accent hover:text-brand-gold border-b border-gray-50 transition">O Espaço</a>
+            <a href="#depoimentos" class="block px-6 py-4 text-sm font-medium hover:bg-brand-accent hover:text-brand-gold border-b border-gray-50 transition">Depoimentos</a>
+            <a href="https://wa.me/5562992492118" class="block px-6 py-4 text-brand-gold font-bold text-center bg-brand-light">
+                Agendar via WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-12 pb-20 lg:py-32 overflow-hidden bg-brand-light">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-accent/30 -skew-x-12 transform origin-top translate-x-20"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                
+                <!-- Text Content -->
+                <div class="lg:w-1/2 text-center lg:text-left reveal active">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm mb-6 border border-brand-accent">
+                        <span class="flex text-brand-gold text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-gray-500">Excelência em Goiânia</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-5xl lg:text-7xl font-medium leading-tight mb-6 text-brand-dark">
+                        Beleza que <br>
+                        <span class="text-gradient-gold font-bold italic pr-2">Inspira Confiança</span>
+                    </h2>
+                    
+                    <p class="text-gray-600 text-lg mb-10 leading-relaxed font-light max-w-lg mx-auto lg:mx-0">
+                        Descubra a melhor versão de si mesma com tratamentos estéticos personalizados em um ambiente acolhedor e tecnológico.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/5562992492118" class="bg-brand-dark text-white px-8 py-4 text-sm uppercase tracking-widest hover:bg-brand-gold hover:shadow-gold transition-all duration-300 shadow-lg group flex items-center justify-center gap-3">
+                            <span>Agendar Avaliação</span>
+                            <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition"></i>
+                        </a>
+                        <a href="#procedimentos" class="border border-brand-dark text-brand-dark px-8 py-4 text-sm uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-all duration-300 text-center">
+                            Nossos Serviços
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Composition -->
+                <div class="lg:w-1/2 relative reveal delay-200">
+                    <div class="relative z-10">
+                        <!-- Main Image -->
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white">
+                             <img src="https://lh3.googleusercontent.com/p/AF1QipMVZkFFBVR0qzb6Eh2-hTapqid1B9k5rJXlZJo=s1360-w1360-h1020-rw" alt="Interior Mello Estética" class="w-full h-auto object-cover transform hover:scale-105 transition duration-1000">
+                             <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                        </div>
+                        
+                        <!-- Floating Card -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl max-w-xs hidden md:block animate-bounce-slow">
+                            <div class="flex items-center gap-4 mb-3">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-brand-dark text-sm">Resultados Comprovados</p>
+                                    <p class="text-xs text-gray-500">Tecnologia de ponta</p>
+                                </div>
+                            </div>
+                            <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-gold h-full w-full rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decor -->
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-brand-gold/10 rounded-full blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="procedimentos" class="py-24 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <span class="text-brand-gold font-bold tracking-[0.2em] uppercase text-xs mb-2 block">Especialidades</span>
+                <h3 class="font-serif text-4xl md:text-5xl text-brand-dark mb-6">Tratamentos Exclusivos</h3>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="text-gray-500 font-light text-lg">Unimos ciência e arte para proporcionar resultados naturais e duradouros.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Service Card -->
+                <div class="group p-8 bg-white border border-gray-100 rounded-2xl hover:border-brand-gold/30 hover:shadow-soft transition-all duration-500 reveal">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-500 text-brand-gold">
+                        <i class="fas fa-snowflake text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl text-brand-dark mb-3">Criolipólise</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Eliminação definitiva de gordura localizada através do congelamento seguro e controlado.</p>
+                    <a href="#" class="text-brand-gold text-xs font-bold uppercase tracking-wider group-hover:underline">Saiba mais</a>
+                </div>
+
+                <!-- Service Card -->
+                <div class="group p-8 bg-white border border-gray-100 rounded-2xl hover:border-brand-gold/30 hover:shadow-soft transition-all duration-500 reveal delay-100">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-500 text-brand-gold">
+                        <i class="fas fa-syringe text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl text-brand-dark mb-3">Harmonização</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Botox e preenchimentos estratégicos para realçar seus traços com naturalidade.</p>
+                    <a href="#" class="text-brand-gold text-xs font-bold uppercase tracking-wider group-hover:underline">Saiba mais</a>
+                </div>
+
+                <!-- Service Card -->
+                <div class="group p-8 bg-white border border-gray-100 rounded-2xl hover:border-brand-gold/30 hover:shadow-soft transition-all duration-500 reveal delay-200">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-500 text-brand-gold">
+                        <i class="fas fa-spa text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl text-brand-dark mb-3">Estética Facial</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Limpeza profunda, peeling e hidratação para uma pele radiante e saudável.</p>
+                    <a href="#" class="text-brand-gold text-xs font-bold uppercase tracking-wider group-hover:underline">Saiba mais</a>
+                </div>
+
+                <!-- Service Card -->
+                <div class="group p-8 bg-white border border-gray-100 rounded-2xl hover:border-brand-gold/30 hover:shadow-soft transition-all duration-500 reveal delay-300">
+                    <div class="w-16 h-16 bg-brand-accent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition duration-500 text-brand-gold">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl text-brand-dark mb-3">Laser & Depilação</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">Tecnologia avançada para remoção de pelos e tratamentos de pele sem dor.</p>
+                    <a href="#" class="text-brand-gold text-xs font-bold uppercase tracking-wider group-hover:underline">Saiba mais</a>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                 <a href="https://wa.me/5562992492118" class="inline-block border-b border-brand-dark pb-1 text-sm uppercase tracking-widest hover:text-brand-gold hover:border-brand-gold transition">Ver menu completo de serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before and After (Resultados) -->
+    <section id="resultados" class="py-24 bg-brand-light">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+                <div class="md:w-2/3">
+                    <h3 class="font-serif text-4xl md:text-5xl text-brand-dark mb-4">Transformações Reais</h3>
+                    <p class="text-gray-600 font-light text-lg">Resultados que elevam a autoestima e o bem-estar.</p>
+                </div>
+                <div class="md:w-1/3 text-right mt-6 md:mt-0">
+                    <a href="https://www.instagram.com/melloesteticaoficial" target="_blank" class="inline-flex items-center gap-2 text-brand-gold font-bold uppercase tracking-wider text-xs border border-brand-gold px-6 py-3 rounded-full hover:bg-brand-gold hover:text-white transition">
+                        <i class="fab fa-instagram text-lg"></i> @melloesteticaoficial
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg aspect-[4/5] reveal">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Resultado Facial" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition duration-500">
+                            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider mb-2 block">Facial</span>
+                            <h4 class="text-white font-serif text-2xl">Rejuvenescimento</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg aspect-[4/5] reveal delay-100">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Resultado Corporal" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition duration-500">
+                            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider mb-2 block">Corporal</span>
+                            <h4 class="text-white font-serif text-2xl">Contorno Corporal</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative overflow-hidden rounded-xl shadow-lg aspect-[4/5] reveal delay-200">
+                    <img src="https://images.unsplash.com/photo-1588510884873-424fa2da9f55?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Resultado Pele" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-8">
+                        <div class="transform translate-y-4 group-hover:translate-y-0 transition duration-500">
+                            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider mb-2 block">Pele</span>
+                            <h4 class="text-white font-serif text-2xl">Revitalização</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location / About Section -->
+    <section id="sobre" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-stretch gap-0 rounded-3xl overflow-hidden shadow-2xl reveal">
+                <!-- Image Side -->
+                <div class="lg:w-1/2 relative min-h-[400px]">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipOS5WTIFDfpO8B-OnLR2BxAUAP7s37vH69_pNs=s1360-w1360-h1020-rw" alt="Fachada Mello Estética" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-brand-dark/20"></div>
+                </div>
+
+                <!-- Content Side -->
+                <div class="lg:w-1/2 bg-brand-dark text-white p-12 lg:p-16 flex flex-col justify-center">
+                    <span class="text-brand-gold font-bold tracking-[0.2em] uppercase text-xs mb-4">Nossa Estrutura</span>
+                    <h3 class="font-serif text-3xl md:text-4xl mb-6">Um Refúgio Urbano</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed font-light">
+                        Localizada no nobre Setor Morada do Sol, a Mello Estética foi projetada para ser mais que uma clínica: um espaço de desconexão e renovação.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-brand-gold shrink-0">
+                                <i class="fas fa-parking"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-sm mb-1">Fácil Acesso</h5>
+                                <p class="text-xs text-gray-500">Estacionamento disponível</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-brand-gold shrink-0">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-sm mb-1">Conforto</h5>
+                                <p class="text-xs text-gray-500">Wi-Fi e ambiente climatizado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.google.com/?q=Mello+Estetica+Goiania" target="_blank" class="self-start border-b border-brand-gold text-brand-gold pb-1 text-sm uppercase tracking-widest hover:text-white hover:border-white transition">
+                        Ver Localização
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="depoimentos" class="py-24 bg-brand-light relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+             <i class="fas fa-quote-right text-[300px] absolute -top-10 -left-20"></i>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <h3 class="font-serif text-4xl text-center text-brand-dark mb-16 reveal">Experiências 5 Estrelas</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review Card -->
+                <div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 reveal">
+                    <div class="flex text-brand-gold text-xs mb-6">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-8 font-serif text-lg">"Lugar aconchegante, com muitos procedimentos estéticos e com ótimos preços. O atendimento é impecável."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-bold text-brand-dark">C</div>
+                        <div>
+                            <p class="font-bold text-sm text-brand-dark">Cliente Google</p>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Verificado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card -->
+                <div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 reveal delay-100">
+                    <div class="flex text-brand-gold text-xs mb-6">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-8 font-serif text-lg">"Excelente profissional, vários serviços de beleza num só local. Recomendo muito pela qualidade e atenção."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-bold text-brand-dark">A</div>
+                        <div>
+                            <p class="font-bold text-sm text-brand-dark">Cliente Google</p>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Verificado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Card (Added for symmetry) -->
+                <div class="bg-white p-10 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 reveal delay-200 hidden lg:block">
+                    <div class="flex text-brand-gold text-xs mb-6">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 italic mb-8 font-serif text-lg">"Ambiente maravilhoso e profissionais super qualificados. Fiz minha criolipólise lá e amei o resultado."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-bold text-brand-dark">M</div>
+                        <div>
+                            <p class="font-bold text-sm text-brand-dark">Cliente Google</p>
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest">Verificado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white pt-20 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-12">
+                
+                <div class="md:col-span-1">
+                    <h2 class="font-serif text-3xl font-bold mb-4">MELLO</h2>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Compromisso com a sua beleza, saúde e autoestima. Tecnologia e carinho em cada detalhe.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/melloesteticaoficial" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-gold hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-gold hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-widest mb-6 text-brand-gold">Navegação</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#inicio" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#procedimentos" class="hover:text-white transition">Procedimentos</a></li>
+                        <li><a href="#resultados" class="hover:text-white transition">Antes e Depois</a></li>
+                        <li><a href="#sobre" class="hover:text-white transition">O Espaço</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-widest mb-6 text-brand-gold">Contato</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li>(62) 99249-2118</li>
+                        <li>contato@melloestetica.com.br</li>
+                        <li>St. Morada do Sol, Goiânia</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-widest mb-6 text-brand-gold">Horários</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex justify-between"><span>Seg - Sex</span> <span>08:00 - 18:00</span></li>
+                        <li class="flex justify-between"><span>Sábado</span> <span>08:00 - 12:00</span></li>
+                        <li class="flex justify-between"><span>Domingo</span> <span>Fechado</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2024 Mello Estética. Todos os direitos reservados.</p>
+                <div class="mt-2 md:mt-0">
+                    <span class="hover:text-gray-300 cursor-pointer transition">Política de Privacidade</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5562992492118?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20procedimentos." 
+       class="whatsapp-float flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-lg" 
+       target="_blank"
+       aria-label="Falar no WhatsApp">
+        <div class="whatsapp-pulse"></div>
+        <i class="fab fa-whatsapp text-3xl z-10"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById("mobile-menu-btn");
+        const menu = document.getElementById("mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+            menu.classList.toggle("flex");
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add("hidden");
+                menu.classList.remove("flex");
+            });
+        });
+
+        // Scroll Animation (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealOnScroll.observe(el));
+
+        // Header Background on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.replace('py-4', 'py-2');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.replace('py-2', 'py-4');
+            }
+        });
+    </script>
+</body>
+</html>
